@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmxxicydrm8il"]
+
+[ext_resource type="Texture2D" uid="uid://dedpipfoxspug" path="res://assets/donut.png" id="1_2x8qv"]
+[ext_resource type="Script" uid="uid://bmdd40iuld72v" path="res://scripts/throwable_object.gd" id="1_i5hmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5hmi"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_elth7"]
+
+[node name="ThrowableObject" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_i5hmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i5hmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2x8qv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_elth7")

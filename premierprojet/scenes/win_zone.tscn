@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu1f1uq10xn0p"]
+
+[ext_resource type="Texture2D" uid="uid://c7hdf20hu2b4u" path="res://assets/basket.png" id="1_r87n5"]
+[ext_resource type="Script" uid="uid://dhri3g770fgh3" path="res://scripts/win_zone.gd" id="1_rjk57"]
+[ext_resource type="Texture2D" uid="uid://dcreunu7h7t3v" path="res://assets/flag.png" id="2_rjk57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3eqv"]
+size = Vector2(14, 7)
+
+[node name="WinZone" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_rjk57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_n3eqv")
+
+[node name="basket" type="Sprite2D" parent="."]
+texture = ExtResource("1_r87n5")
+
+[node name="flag" type="Sprite2D" parent="."]
+position = Vector2(10, -8)
+texture = ExtResource("2_rjk57")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
